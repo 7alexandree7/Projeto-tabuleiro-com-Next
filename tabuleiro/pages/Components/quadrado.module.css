@@ -3,24 +3,29 @@
     flex-direction: column;
 }
 
-
-
 .containerflex {
     width: 100%;
     display: flex;
-    flex-direction: row
+    flex-direction: row;
 }
-
-
 
 .teste {
     width: 120px;
     height: 90px;
-    border: 2px solid blue;
-    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.whiteSquare {
+    background-color: #fff;
+}
+
+.blackSquare {
+    background-color: #000;
+    color: #fff; /* Para garantir que o texto seja visível no fundo preto */
+}
 
 .texto {
-    color: rgb(228, 134, 40)
+    color: rgb(228, 134, 40);
 }

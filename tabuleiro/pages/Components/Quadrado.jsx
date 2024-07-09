@@ -1,32 +1,34 @@
-import style from "./quadrado.module.css"
+import style from "./quadrado.module.css";
 
-function gerarQuadrado() {
 
-    const list = []
+function gerarQuadrado(row) {
+    const list = [];
     for (let i = 0; i < 8; i++) {
-        list.push(<div key={i} className={style.teste}>{i}</div>)
+        const isBlack = (row + i) % 2 === 0;
+        const squareClass = isBlack ? style.blackSquare : style.whiteSquare;
+        list.push(<div key={i} className={`${style.teste} ${squareClass}`}>{i}</div>);
+        console.log(row)
     }
-
-    return list
+    return list;
 }
 
 
-function quantidadeColuna (num) {
 
+function quantidadeColuna(num) {
     const listColuna = [];
-    for(let i = 0; i < num; i++) {
-        listColuna.push(<div className={style.boxComponent}>{gerarQuadrado()}</div>)
+    for (let i = 0; i < num; i++) {
+        listColuna.push(<div key={i} className={style.boxComponent}>{gerarQuadrado(i)}</div>);
     }
-
-    return listColuna
+    return listColuna;
 }
+
 
 
 export default function Quadrado() {
-
+    
     return (
-        <>
-        {quantidadeColuna(8)}
-        </>
-    )
+        <div className={style.containerflex}>
+            {quantidadeColuna(8)}
+        </div>
+    );
 }
